@@ -13,6 +13,9 @@
     border-top: 2px solid #00000050;
     margin-top: 20px;
 }
+.tab__label {
+    cursor: pointer;
+}
 .tab__title {
     font-size: 32px;
     line-height: 34px;
@@ -21,6 +24,7 @@
     font-size: 32px;
     line-height: 34px;
     transform: rotate(45deg);
+    transition: transform 0.4s ease-in-out;
 }
 .tab__top {
     display: flex;
@@ -32,10 +36,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-in-out;
 }
 .tab__image {
     width: 100%;
     max-width: 740px;
     height: auto;
+    margin-top: 30px;
+}
+
+.tab:hover .tab__top .tab__cross {
+    transform: rotate(0);
+}
+
+.tab:hover .tab__image-wrap {
+    max-height: 999px;
 }
