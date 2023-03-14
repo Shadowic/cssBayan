@@ -16,6 +16,10 @@ input {
 .tab {
     border-top: 2px solid #00000050;
     margin-top: 20px;
+    transition: filter 0.5s ease-in-out;
+}
+.tab:active {
+    filter: grayscale(1);
 }
 .tab__label {
     cursor: pointer;
@@ -23,18 +27,21 @@ input {
 .tab__title {
     font-size: 32px;
     line-height: 34px;
+    color: blue;
 }
 .tab__cross {
     font-size: 32px;
     line-height: 34px;
     transform: rotate(45deg);
-    transition: transform 0.4s ease-in-out;
+    transition: transform 0.6s ease-in-out;
+    color: blue;
 }
 .tab__top {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
+    font-weight: bold;
 }
 .tab__image-wrap {
     display: flex;
@@ -42,7 +49,7 @@ input {
     align-items: center;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.4s ease-in-out;
+    transition: max-height 0.6s ease-in-out;
 }
 .tab__image {
     width: 100%;
@@ -50,11 +57,55 @@ input {
     height: auto;
     margin-top: 30px;
 }
-
 .tab:hover .tab__top .tab__cross {
     transform: rotate(0);
 }
-
+input:checked ~ .tab__image-wrap,
 .tab:hover .tab__image-wrap {
     max-height: 999px;
+}
+input:checked ~ .tab__top > .tab__title,
+input:checked ~ .tab__top > .tab__cross {
+    color: #000;
+}
+
+@media screen and (max-width: 1280px) {
+    .title {
+        font-size: 32px;
+        line-height: 32px;
+        margin-top: 30px;
+    }
+    .tab__title {
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .tab__cross {
+        font-size: 24px;
+        line-height: 24px;
+    }
+    .tab__image {
+        width: 100%;
+        max-width: 620px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 744px) {
+    .title {
+        font-size: 28px;
+        line-height: 28px;
+        margin-top: 20px;
+    }
+    .tab__title {
+        font-size: 14px;
+        line-height: 16px;
+    }
+    .tab__cross {
+        font-size: 14px;
+        line-height: 14px;
+    }
+    .tab__image {
+        width: 100%;
+        max-width: 400px;
+    }
 }
